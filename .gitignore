@@ -1,0 +1,13 @@
+# Compiled source #
+###################
+*.class
+
+# Folders #
+###################
+.idea/
+out/
+
+# Files #
+###################
+*.iml
+*.class
