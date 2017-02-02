@@ -4,12 +4,10 @@
 
 # Folders #
 ###################
-.idea/
 out/
 .vs/
 Debug/
 
 # Files #
 ###################
-*.iml
 *.class
