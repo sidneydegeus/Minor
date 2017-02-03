@@ -22,6 +22,7 @@ import javafx.scene.paint.RadialGradient;
 import javafx.scene.paint.Stop;
 import javafx.scene.shape.*;
 import javafx.scene.shape.Rectangle;
+import maze.model.Maze;
 
 import java.net.URL;
 import java.util.Random;
@@ -45,6 +46,8 @@ public class MazeController implements Initializable {
 
     public void generateMaze() {
         int numberOfElements = 36;
+
+        Maze maze = new Maze();
         disjointSets = new DisjointSets(numberOfElements);
         drawMaze(gc, (int) Math.sqrt(numberOfElements));
     }
