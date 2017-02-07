@@ -5,7 +5,8 @@ var controls;
 var cars = [];
 var clock;
 var sky;
-var mesh2;
+var sun;
+var planeBox;
 
 // init function is meant for initializing things such as
 // the camera, scene, renderer and meshes
@@ -40,7 +41,7 @@ function initCamera() {
     );
     // setting position of the camera
     camera.position.x = 0;
-    camera.position.y = 0;
+    camera.position.y = 5;
     camera.position.z = 5;
 }
 
@@ -64,26 +65,58 @@ function initControls() {
 
 function initMeshes() {
     initPlane();
+    initSun();
     initStreet();
 
     //Create houses, starts at x-45 every house +3 x for nice placement
     var xPlace = -45;
+    var carInt = 2;
     for (i = 0; i < 31; i++) {
         if(i % 3 == 0) {
-            createTree(xPlace, 1, -2.6);
-            createTree(xPlace, 1, 0.4);
+            createTree(xPlace, 1, -2.7);
+            createTree(xPlace, 1, 0.8);
+            if(i < 28) {
+                if(getRandomInt(1,2) == 1) {
+                    cars[carInt] = createCar(xPlace + 2, 1, -2.8, false, false); // false is to the left
+                    carInt += 1;
+                }
+                if(getRandomInt(1,2) == 1) {
+                    cars[carInt] = createCar(xPlace + 4, 1, -2.8, false, false); // false is to the left
+                    carInt += 1;
+                }
+                if(getRandomInt(1,2) == 1) {
+                    cars[carInt] = createCar(xPlace + 6, 1, -2.8, false, false); // false is to the left
+                    carInt += 1;
+                }
+                if(getRandomInt(1,2) == 1) {
+                    cars[carInt] = createCar(xPlace + 2, 1, 0.7, false, false); // false is to the left
+                    carInt += 1;
+                }
+                if(getRandomInt(1,2) == 1) {
+                    cars[carInt] = createCar(xPlace + 4, 1, 0.7, false, false); // false is to the left
+                    carInt += 1;
+                }
+                if(getRandomInt(1,2) == 1) {
+                    cars[carInt] = createCar(xPlace + 6, 1, 0.7, false, false); // false is to the left
+                    carInt += 1;
+                }
+            }
         }
 
+
         //2 house methods because you need to rotate the house for the front and the back
-        createHouseF(xPlace, 1, -5);
-        createHouseB(xPlace, 1, 2.8);
+        createHouseF(xPlace, 1, -5.3);
+        createHouseB(xPlace, 1, 3.3);
         xPlace += 3;
     }
 
-    cars[0] = createCar(-11, 0, -5, true, true); // true is to the right
-    cars[1] = createCar(11, 0, -8, false, true); // false is to the left
-    cars[2] = createCar(11, 0, -2, false, false); // false is to the left
+    cars[0] = createCar(-11, 1, -1, false, true); // true is to the right
+    cars[1] = createCar(11, 1, -1, false, true); // false is to the left
     //
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // initLight function initiates the light on the
@@ -137,19 +170,24 @@ function initLight() {
 }
 
 function initPlane() {
-    var material = new THREE.MeshNormalMaterial({ color : 0x447733 });
+    var material = new THREE.MeshLambertMaterial({ color : 0x447733 });
     var plane = new THREE.Mesh(new THREE.PlaneGeometry(95, 20), material);
     plane.material.side = THREE.DoubleSide;
     plane.position.x = 0;
-    plane.position.y = -1;
-    plane.position.z = -6.5;
     // rotating the plane
     plane.rotation.x = Math.PI / 2;
     scene.add(plane)
+    planeBox = new THREE.Box3().setFromObject(plane);
+}
 
-    var box = new THREE.Box3().setFromObject( plane );
-    console.log( box.min, box.max, box.size() );
-    console.log(plane.getWorldPosition());
+function initSun() {
+    var geometrySphere = new THREE.SphereGeometry(3, 30, 18);
+    var materialPhong = new THREE.MeshPhongMaterial({color: 0xff9900, shininess: 100});
+    sun = new THREE.Mesh(geometrySphere, materialPhong);
+    sun.position.x = 0;
+    sun.position.z = 0;
+    sun.position.y = 15;
+    scene.add(sun);
 }
 
 function initStreet(){
@@ -158,10 +196,10 @@ function initStreet(){
     var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
     cube.position.x = 0;
     cube.position.y = 0.1;
-    cube.position.z = -3.4;
+    cube.position.z = -3.8;
     scene.add(cube);
 
-    var cube2Geometry = new THREE.BoxGeometry(93,0.1,2);
+    var cube2Geometry = new THREE.BoxGeometry(93,0.1,2.5);
     var cube2Material = new THREE.MeshLambertMaterial({color:  0xffff7f00});
     var cube2 = new THREE.Mesh(cube2Geometry, cube2Material);
     cube2.position.x = 0;
@@ -174,7 +212,7 @@ function initStreet(){
     var cube3 = new THREE.Mesh(cube3Geometry, cube3Material);
     cube3.position.x = 0;
     cube3.position.y = 0.1;
-    cube3.position.z = 1.3;
+    cube3.position.z = 1.8;
     scene.add(cube3);
 }
 
@@ -296,51 +334,56 @@ function createTree(xValue, yValue, zValue) {
     scene.add(sphere);
 }
 
-/*function initTrees() {
-    var cylinderGeometry = new THREE.CylinderGeometry(0.4,0.4,2);
-    var cylinderMaterial = new THREE.MeshLambertMaterial({color: 0x5F1700});
-    var cylinder = new THREE.Mesh(cylinderGeometry,cylinderMaterial);
-    cylinder.position.x = 0;
-    cylinder.position.y = 0;
-    cylinder.position.z = -10;
-    scene.add(cylinder);
-
-    var geometrySphere = new THREE.SphereGeometry(.9, 12, 18);
-    var materialLambert = new THREE.MeshLambertMaterial({color: 0x888888});
-    var sphere = new THREE.Mesh(geometrySphere, materialLambert);
-    sphere.position.x = 0;
-    sphere.position.y = 1.5;
-    sphere.position.z = -10;
-    scene.add(sphere);
-}*/
-
 function createCar(xValue, yValue, zValue, direction, isDriving) {
-    // geometry and mesh for the body of the car
     var geometryCarBody = new THREE.BoxGeometry(1.5, 0.7, 1);
-    var material = new THREE.MeshNormalMaterial();
+    // geometry and mesh for the body of the car
+    for ( var i = 0; i < geometryCarBody.faces.length; i ++ ) {
+        var face = geometryCarBody.faces[ i ];
+        face.color.setHex( Math.random() * 0xffffff );
+    }
+    var material = new THREE.MeshLambertMaterial({vertexColors: THREE.FaceColors});
     var carBody = new THREE.Mesh(geometryCarBody, material);
     carBody.position.x = xValue;
-    carBody.position.y = yValue -0.5;
+    carBody.position.y = yValue - 0.5;
     carBody.position.z = zValue;
 
     // geometry and mesh for the roof of the car
     var geometryCarRoof = new THREE.BoxGeometry(0.7, 0.5, 1);
-    var material = new THREE.MeshNormalMaterial();
+    // geometry and mesh for the body of the car
+    for ( var i = 0; i < geometryCarRoof.faces.length; i ++ ) {
+        var face = geometryCarRoof.faces[ i ];
+        face.color.setHex( Math.random() * 0xffffff );
+    }
+    var material = new THREE.MeshLambertMaterial({vertexColors: THREE.FaceColors});
     var carRoof = new THREE.Mesh(geometryCarRoof, material);
     carRoof.position.x = xValue;
     carRoof.position.y = yValue + 0.1;
     carRoof.position.z = zValue;
 
-    var carLightGeometry = new THREE.CylinderGeometry(0.15, 0.075, 0.15);
-    var carLightMaterial = new THREE.MeshLambertMaterial({color: 0x5F1700});
+    var carLightGeometry = new THREE.BoxGeometry(0.025, 0.3, 0.2);
+    var carLightMaterial = new THREE.MeshLambertMaterial({color: 0x8c8c8c});
     var carLights = [];
+    var spotlights = [];
+    // a car as 2 front lights, so we'll add them to the scene and to an array
     for (var i = 0; i < 2; i++) {
         var carLight = new THREE.Mesh(carLightGeometry, carLightMaterial);
-        carLight.position.x = direction ? xValue + .65 : xValue - .65;
-        carLight.position.y = yValue;
-        carLight.position.z = zValue;
+        var carLightXPos = direction ? xValue + .75 : xValue - .75;
+        var carLightYPos  = yValue - 0.35;
+        var carLightZPos = i == 0 ? zValue + 0.25 : zValue - 0.25;
+        carLight.position.x = carLightXPos;
+        carLight.position.y = carLightYPos;
+        carLight.position.z = carLightZPos;
         carLight.rotation.x = Math.PI / 2;
         carLights[i] = carLight;
+
+        var spotlight = new THREE.SpotLight(0xffffff);
+        spotlight.position.set(carLightXPos,carLightYPos,carLightZPos);
+        spotlight.lookAt(
+            direction ? carLightXPos + 2 : carLightXPos - 2,
+            carLightYPos - 0.2,
+            carLightZPos
+        );
+        spotlights[i] = spotlight
         scene.add(carLight);
     }
 
@@ -361,33 +404,38 @@ function createCar(xValue, yValue, zValue, direction, isDriving) {
         } else {
             wheel.position.x = xValue - 0.45;
         }
-        wheel.position.y = -0.82;
+        wheel.position.y = yValue - 0.82;
         wheel.rotation.x = Math.PI / 2;
         wheels[i] = wheel;
         scene.add(wheel);
     }
+
     scene.add(carBody);
     scene.add(carRoof);
     // return a new car object with the car body, car roof, car wheels and the direction it's going
-    return new car(carBody, carRoof, wheels, direction, isDriving);
+    return new car(carBody, carRoof, wheels, carLights, direction, isDriving, spotlights);
 }
 
 // a car object that contains specific variables
-function car(carBody, carRoof, wheels, direction, isDriving) {
+function car(carBody, carRoof, wheels, carLights, direction, isDriving, spotlights) {
     this.carBody = carBody;
     this.carRoof = carRoof
-    this.wheels = wheels;
+    this.wheels = wheels
+    this.carLights = carLights;
     this.direction = direction;
     this.isDriving = isDriving;
+    this.isLightsOn = false;
+    this.carSpotlights = spotlights
 }
 
 // render function will render the scene
 function render() {
     requestAnimationFrame(render);
     var delta = clock.getDelta();
-
-    //moveSun();
-    //moveCar();
+    var time = new Date().getTime() * 0.0002;
+    changeDayTime(time);
+    moveSun(time, delta);
+    moveCar();
     // updating the scene based on controls
     controls.update();
     // rendering the scene
@@ -395,8 +443,7 @@ function render() {
 
 }
 
-function moveSun() {
-    var time = new Date().getTime() * 0.0002;
+function changeDayTime(time) {
     // var time = 2.1;
     var nsin = Math.sin(time);
     var ncos = Math.cos(time);
@@ -409,13 +456,22 @@ function moveSun() {
         var f = 1;
         dirLight.intensity = f;
         dirLight.shadowDarkness = f*0.7;
+        for (var i = 0; i < cars.length; i++) {
+            if (cars[i].isLightsOn) {
+                cars[i].isLightssOn = false;
+                scene.remove(cars[i].carSpotlights[0]);
+                scene.remove(cars[i].carSpotlights[1]);
+            }
+            cars[i].carLights[0].material.color.setHex(0x8c8c8c);
+            cars[i].carLights[1].material.color.setHex(0x8c8c8c);
+        }
     }
     else if (nsin < 0.2 && nsin > 0.0 ) {
         var f = nsin/0.2;
         dirLight.intensity = f;
         dirLight.shadowDarkness = f*0.7;
         sky.material.uniforms.topColor.value.setRGB(0.25*f,0.55*f,1*f);
-        sky.material.uniforms.bottomColor.value.setRGB(1*f,   1*f,1*f);
+        sky.material.uniforms.bottomColor.value.setRGB(1*f, 1*f, 1*f);
     }
     else { // night
         var f = 0;
@@ -423,19 +479,55 @@ function moveSun() {
         dirLight.shadowDarkness = f*0.7;
         sky.material.uniforms.topColor.value.setRGB(0,0,0);
         sky.material.uniforms.bottomColor.value.setRGB(0,0,0);
+        for (var i = 0; i < cars.length; i++) {
+            if (cars[i].isDriving) {
+                if (!cars[i].isLightsOn) {
+                    cars[i].isLightssOn = true;
+                    scene.add(cars[i].carSpotlights[0]);
+                    scene.add(cars[i].carSpotlights[1]);
+                }
+                cars[i].carLights[0].material.color.setHex(0xffff33);
+                cars[i].carLights[1].material.color.setHex(0xffff33);
+            }
+        }
     }
+}
+
+function moveSun(time, delta) {
+    sun.position.z = Math.cos(time) * 20.5;
+    sun.position.y = Math.sin(time) * 20.5;
+    sun.rotation.x += 6.4 * delta;
 }
 
 function moveCar() {
     var moveDirection = 0;
     for (var i = 0; i < cars.length; i++) {
         if (cars[i].isDriving) {
-
-        /*      if(cars[i].carBody.position.x >= 11) {
-
-         } else {
-
-         }*/
+            if(cars[i].carBody.position.x < planeBox.min.x) {
+                cars[i].carBody.position.x += planeBox.size().x;
+                cars[i].carRoof.position.x += planeBox.size().x;
+                cars[i].wheels[0].position.x += planeBox.size().x;
+                cars[i].wheels[1].position.x += planeBox.size().x;
+                cars[i].wheels[2].position.x += planeBox.size().x;
+                cars[i].wheels[3].position.x += planeBox.size().x;
+                cars[i].carLights[0].position.x += planeBox.size().x;
+                cars[i].carLights[1].position.x += planeBox.size().x;
+                cars[i].carSpotlights[0].position.x += planeBox.size().x;
+                cars[i].carSpotlights[1].position.x += planeBox.size().x;
+                cars[i].carSpotlights[1].lookAt.x  += planeBox.size().x;
+            } else if (cars[i].carBody.position.x > planeBox.size().x) {
+                cars[i].carBody.position.x -= planeBox.size().x;
+                cars[i].carRoof.position.x -= planeBox.size().x;
+                cars[i].wheels[0].position.x -= planeBox.size().x;
+                cars[i].wheels[1].position.x -= planeBox.size().x;
+                cars[i].wheels[2].position.x -= planeBox.size().x;
+                cars[i].wheels[3].position.x -= planeBox.size().x;
+                cars[i].carLights[0].position.x -= planeBox.size().x;
+                cars[i].carLights[1].position.x -= planeBox.size().x;
+                cars[i].carSpotlights[0].position.x -= planeBox.size().x;
+                cars[i].carSpotlights[1].position.x -= planeBox.size().x;
+                cars[i].carSpotlights[1].lookAt.x  -= planeBox.size().x;
+            }
             cars[i].direction ? moveDirection = 0.03 : moveDirection = -0.03;
             cars[i].carBody.position.x += moveDirection;
             cars[i].carRoof.position.x += moveDirection;
@@ -443,6 +535,11 @@ function moveCar() {
             cars[i].wheels[1].position.x += moveDirection;
             cars[i].wheels[2].position.x += moveDirection;
             cars[i].wheels[3].position.x += moveDirection;
+            cars[i].carLights[0].position.x += moveDirection;
+            cars[i].carLights[1].position.x += moveDirection;
+            cars[i].carSpotlights[0].position.x += moveDirection;
+            cars[i].carSpotlights[1].position.x += moveDirection;
+            cars[i].carSpotlights[1].lookAt.x += moveDirection;
         }
     }
 }

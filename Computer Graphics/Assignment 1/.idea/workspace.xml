@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/assignment_1.js" description="        spotlight.lookAt(&#10;            direction ? ..." line="380" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0218ed70-9d8b-4c57-b02d-54294b21e27d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,18 +21,44 @@
       <file leaf-file-name="assignment_1.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assignment_1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="341" column="42" lean-forward="false" selection-start-line="341" selection-start-column="42" selection-end-line="341" selection-end-column="42" />
+            <state relative-caret-position="206">
+              <caret line="505" column="61" lean-forward="true" selection-start-line="505" selection-start-column="61" selection-end-line="505" selection-end-column="61" />
               <folding>
+                <element signature="e#133#190#0" expanded="false" />
+                <element signature="n#!!block;n#initScene#0" expanded="false" />
+                <element signature="n#!!block;n#initCamera#0" expanded="false" />
+                <element signature="e#672#752#0" expanded="false" />
                 <element signature="n#!!block;n#initRenderer#0" expanded="false" />
+                <element signature="e#1389#1441#0" expanded="false" />
                 <element signature="n#!!block;n#initControls#0" expanded="false" />
+                <element signature="n#!!block;n#initMeshes#0" expanded="false" />
+                <element signature="e#1963#3518#0" expanded="false" />
+                <element signature="e#1988#3322#0" expanded="false" />
+                <element signature="e#2094#3312#0" expanded="false" />
+                <element signature="e#2139#2296#0" expanded="false" />
+                <element signature="e#2340#2497#0" expanded="false" />
+                <element signature="e#2541#2698#0" expanded="false" />
+                <element signature="e#2742#2898#0" expanded="false" />
+                <element signature="e#2942#3098#0" expanded="false" />
+                <element signature="e#3142#3298#0" expanded="false" />
+                <element signature="e#3643#3666#0" expanded="false" />
+                <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
                 <element signature="n#!!block;n#initLight#0" expanded="false" />
+                <element signature="e#5101#5346#0" expanded="false" />
                 <element signature="n#!!block;n#initPlane#0" expanded="false" />
+                <element signature="n#!!block;n#initSun#0" expanded="false" />
                 <element signature="n#!!block;n#initStreet#0" expanded="false" />
                 <element signature="n#!!block;n#createHouseF#0" expanded="false" />
                 <element signature="n#!!block;n#createHouseB#0" expanded="false" />
                 <element signature="n#!!block;n#createTree#0" expanded="false" />
-                <element signature="e#10706#11375#0" expanded="false" />
+                <element signature="e#14824#15323#0" expanded="false" />
+                <element signature="e#14922#14979#0" expanded="false" />
+                <element signature="e#14985#15042#0" expanded="false" />
+                <element signature="e#15062#15119#0" expanded="false" />
+                <element signature="e#15125#15182#0" expanded="false" />
+                <element signature="n#!!block;n#changeDayTime#0" expanded="false" />
+                <element signature="e#17215#17464#0" expanded="false" />
+                <element signature="n#!!block;n#moveSun#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -38,7 +67,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
+            <state relative-caret-position="714">
               <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
@@ -56,6 +85,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/assignment_1 (2).js" />
         <option value="$PROJECT_DIR$/assignment_1.js" />
       </list>
     </option>
@@ -67,10 +97,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="941" />
-    <option name="y" value="26" />
-    <option name="width" value="960" />
-    <option name="height" value="984" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -88,6 +118,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -102,7 +133,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -114,6 +144,11 @@
     <property name="nodejs_interpreter_path" value="D:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="D:\Program Files\nodejs\node.exe" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Sidney\Documents\Minor\Computer Graphics\Assignment 1\three" />
+    </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Assignment 1/index.html">
@@ -521,14 +556,15 @@
       <workItem from="1486340262427" duration="617000" />
       <workItem from="1486340921262" duration="5951000" />
       <workItem from="1486383945748" duration="14799000" />
+      <workItem from="1486467431938" duration="9405000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21367000" />
+    <option name="totallyTimeSpent" value="30772000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="941" y="26" width="960" height="984" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -537,22 +573,22 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2611111" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12793177" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -569,7 +605,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -585,13 +621,25 @@
           <folding>
             <element signature="n#!!block;n#initRenderer#0" expanded="false" />
             <element signature="n#!!block;n#initControls#0" expanded="false" />
-            <element signature="n#!!block;n#initLight#0" expanded="false" />
-            <element signature="n#!!block;n#initPlane#0" expanded="false" />
-            <element signature="n#!!block;n#initStreet#0" expanded="false" />
-            <element signature="n#!!block;n#createHouseF#0" expanded="false" />
-            <element signature="n#!!block;n#createHouseB#0" expanded="false" />
-            <element signature="n#!!block;n#createTree#0" expanded="false" />
-            <element signature="e#10706#11375#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment_1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#initRenderer#0" expanded="false" />
+            <element signature="n#!!block;n#initControls#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -611,20 +659,13 @@
           <folding>
             <element signature="n#!!block;n#initRenderer#0" expanded="false" />
             <element signature="n#!!block;n#initControls#0" expanded="false" />
-            <element signature="n#!!block;n#initLight#0" expanded="false" />
-            <element signature="n#!!block;n#initPlane#0" expanded="false" />
-            <element signature="n#!!block;n#initStreet#0" expanded="false" />
-            <element signature="n#!!block;n#createHouseF#0" expanded="false" />
-            <element signature="n#!!block;n#createHouseB#0" expanded="false" />
-            <element signature="n#!!block;n#createTree#0" expanded="false" />
-            <element signature="e#10706#11375#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
+        <state relative-caret-position="714">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
@@ -632,18 +673,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assignment_1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="341" column="42" lean-forward="false" selection-start-line="341" selection-start-column="42" selection-end-line="341" selection-end-column="42" />
+        <state relative-caret-position="453">
+          <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="163" selection-end-column="1" />
           <folding>
             <element signature="n#!!block;n#initRenderer#0" expanded="false" />
             <element signature="n#!!block;n#initControls#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment_1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="505" column="61" lean-forward="true" selection-start-line="505" selection-start-column="61" selection-end-line="505" selection-end-column="61" />
+          <folding>
+            <element signature="e#133#190#0" expanded="false" />
+            <element signature="n#!!block;n#initScene#0" expanded="false" />
+            <element signature="n#!!block;n#initCamera#0" expanded="false" />
+            <element signature="e#672#752#0" expanded="false" />
+            <element signature="n#!!block;n#initRenderer#0" expanded="false" />
+            <element signature="e#1389#1441#0" expanded="false" />
+            <element signature="n#!!block;n#initControls#0" expanded="false" />
+            <element signature="n#!!block;n#initMeshes#0" expanded="false" />
+            <element signature="e#1963#3518#0" expanded="false" />
+            <element signature="e#1988#3322#0" expanded="false" />
+            <element signature="e#2094#3312#0" expanded="false" />
+            <element signature="e#2139#2296#0" expanded="false" />
+            <element signature="e#2340#2497#0" expanded="false" />
+            <element signature="e#2541#2698#0" expanded="false" />
+            <element signature="e#2742#2898#0" expanded="false" />
+            <element signature="e#2942#3098#0" expanded="false" />
+            <element signature="e#3142#3298#0" expanded="false" />
+            <element signature="e#3643#3666#0" expanded="false" />
+            <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
             <element signature="n#!!block;n#initLight#0" expanded="false" />
+            <element signature="e#5101#5346#0" expanded="false" />
             <element signature="n#!!block;n#initPlane#0" expanded="false" />
+            <element signature="n#!!block;n#initSun#0" expanded="false" />
             <element signature="n#!!block;n#initStreet#0" expanded="false" />
             <element signature="n#!!block;n#createHouseF#0" expanded="false" />
             <element signature="n#!!block;n#createHouseB#0" expanded="false" />
             <element signature="n#!!block;n#createTree#0" expanded="false" />
-            <element signature="e#10706#11375#0" expanded="false" />
+            <element signature="e#14824#15323#0" expanded="false" />
+            <element signature="e#14922#14979#0" expanded="false" />
+            <element signature="e#14985#15042#0" expanded="false" />
+            <element signature="e#15062#15119#0" expanded="false" />
+            <element signature="e#15125#15182#0" expanded="false" />
+            <element signature="n#!!block;n#changeDayTime#0" expanded="false" />
+            <element signature="e#17215#17464#0" expanded="false" />
+            <element signature="n#!!block;n#moveSun#0" expanded="false" />
           </folding>
         </state>
       </provider>
