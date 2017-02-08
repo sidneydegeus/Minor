@@ -10,6 +10,9 @@ var planeBox;
 
 // init function is meant for initializing things such as
 // the camera, scene, renderer and meshes
+// everything gets called by just calling init()
+// this is done on purpose so that javascript loads all the code before even
+// calling the init()
 function init() {
     initScene();
     initCamera();
@@ -57,12 +60,14 @@ function initRenderer() {
     document.body.appendChild(renderer.domElement);
 }
 
+// initControls serves to set up the controls
 function initControls() {
     controls = new THREE.OrbitControls(camera);
     controls.autoRotateSpeed = 2;
     controls.noKeys = true;
 }
 
+// initMeshes is a function that will create all the meshes that will be added to the scene.
 function initMeshes() {
     initPlane();
     initSun();
@@ -103,7 +108,6 @@ function initMeshes() {
             }
         }
 
-
         //2 house methods because you need to rotate the house for the front and the back
         createHouseF(xPlace, 1, -5.3);
         createHouseB(xPlace, 1, 3.3);
@@ -112,14 +116,13 @@ function initMeshes() {
 
     cars[0] = createCar(-11, 1, -1, false, true); // true is to the right
     cars[1] = createCar(11, 1, -1, false, true); // false is to the left
-    //
 }
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// initLight function initiates the light on the
+// initLight function initiates the light on the scene
 function initLight() {
     // add hemi lights
     var hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.05 );
@@ -169,6 +172,7 @@ function initLight() {
     clock = new THREE.Clock();
 }
 
+// initPlane function initiates the plane
 function initPlane() {
     var material = new THREE.MeshLambertMaterial({ color : 0x447733 });
     var plane = new THREE.Mesh(new THREE.PlaneGeometry(95, 20), material);
@@ -176,10 +180,14 @@ function initPlane() {
     plane.position.x = 0;
     // rotating the plane
     plane.rotation.x = Math.PI / 2;
-    scene.add(plane)
+    scene.add(plane);
+    // planeBox will contain the vector3 of the plane, to calculate movements
+    // if it will reach the end of the plane
     planeBox = new THREE.Box3().setFromObject(plane);
 }
 
+
+// initSun function initiates the sun
 function initSun() {
     var geometrySphere = new THREE.SphereGeometry(3, 30, 18);
     var materialPhong = new THREE.MeshPhongMaterial({color: 0xff9900, shininess: 100});
@@ -316,6 +324,7 @@ function createHouseB(xValue, yValue, zValue){
     scene.add(cylinder);
 }
 
+// createTree function creates a tree at the given x, y, z coordinates
 function createTree(xValue, yValue, zValue) {
     var cylinderGeometry = new THREE.CylinderGeometry(0.4,0.4,2);
     var cylinderMaterial = new THREE.MeshLambertMaterial({color: 0x5F1700});
@@ -334,6 +343,8 @@ function createTree(xValue, yValue, zValue) {
     scene.add(sphere);
 }
 
+// createCar function creates a car at the given x, y, z coordinates and faces/drives
+// a specific direction and whether it is driving as well
 function createCar(xValue, yValue, zValue, direction, isDriving) {
     var geometryCarBody = new THREE.BoxGeometry(1.5, 0.7, 1);
     // geometry and mesh for the body of the car
@@ -376,6 +387,7 @@ function createCar(xValue, yValue, zValue, direction, isDriving) {
         carLight.rotation.x = Math.PI / 2;
         carLights[i] = carLight;
 
+        // each frontlight has a spotlight as well
         var spotlight = new THREE.SpotLight(0xffffff);
         spotlight.position.set(carLightXPos,carLightYPos,carLightZPos);
         spotlight.lookAt(
@@ -412,11 +424,11 @@ function createCar(xValue, yValue, zValue, direction, isDriving) {
 
     scene.add(carBody);
     scene.add(carRoof);
-    // return a new car object with the car body, car roof, car wheels and the direction it's going
+    // return a new car object with the car body, car roof, car wheels etc...
     return new car(carBody, carRoof, wheels, carLights, direction, isDriving, spotlights);
 }
 
-// a car object that contains specific variables
+// a car object that contains specific variables to what a car contains and such
 function car(carBody, carRoof, wheels, carLights, direction, isDriving, spotlights) {
     this.carBody = carBody;
     this.carRoof = carRoof
@@ -443,6 +455,7 @@ function render() {
 
 }
 
+// changeDayTime function
 function changeDayTime(time) {
     // var time = 2.1;
     var nsin = Math.sin(time);
@@ -493,16 +506,23 @@ function changeDayTime(time) {
     }
 }
 
+// moveSun function handles all animations for the sun
 function moveSun(time, delta) {
     sun.position.z = Math.cos(time) * 20.5;
     sun.position.y = Math.sin(time) * 20.5;
     sun.rotation.x += 6.4 * delta;
 }
 
+// moveCar function handles all the animations for the car movement
 function moveCar() {
+    // moveDirection is 0 because first it has to be determined whether the car moves right or left
     var moveDirection = 0;
     for (var i = 0; i < cars.length; i++) {
+        // if a car is driving (true), then make it move direction
         if (cars[i].isDriving) {
+            // if the car position is less than the minimum (for example, car position is -50 and end of plane is -45)
+            // or if the position is more than the maximum then we'll relocate the car
+            // because it moved "off" the plane. so it starts at the other side of the plane
             if(cars[i].carBody.position.x < planeBox.min.x) {
                 cars[i].carBody.position.x += planeBox.size().x;
                 cars[i].carRoof.position.x += planeBox.size().x;
@@ -515,7 +535,7 @@ function moveCar() {
                 cars[i].carSpotlights[0].position.x += planeBox.size().x;
                 cars[i].carSpotlights[1].position.x += planeBox.size().x;
                 cars[i].carSpotlights[1].lookAt.x  += planeBox.size().x;
-            } else if (cars[i].carBody.position.x > planeBox.size().x) {
+            } else if (cars[i].carBody.position.x > planeBox.max.x) {
                 cars[i].carBody.position.x -= planeBox.size().x;
                 cars[i].carRoof.position.x -= planeBox.size().x;
                 cars[i].wheels[0].position.x -= planeBox.size().x;
@@ -528,6 +548,7 @@ function moveCar() {
                 cars[i].carSpotlights[1].position.x -= planeBox.size().x;
                 cars[i].carSpotlights[1].lookAt.x  -= planeBox.size().x;
             }
+            // move the x position of all components of the car
             cars[i].direction ? moveDirection = 0.03 : moveDirection = -0.03;
             cars[i].carBody.position.x += moveDirection;
             cars[i].carRoof.position.x += moveDirection;
